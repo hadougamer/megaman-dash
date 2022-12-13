@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/Hero.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Ground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://images/sky.jpg" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 38, 327 )
+
+[node name="Main" type="Node2D"]
+
+[node name="sky" type="Sprite" parent="."]
+position = Vector2( 506.75, 264.5 )
+scale = Vector2( 1.39172, 1.35068 )
+texture = ExtResource( 3 )
+
+[node name="InvisibleWalls" type="StaticBody2D" parent="."]
+
+[node name="collider1" type="CollisionShape2D" parent="InvisibleWalls"]
+position = Vector2( -38, 282 )
+shape = SubResource( 1 )
+
+[node name="collider2" type="CollisionShape2D" parent="InvisibleWalls"]
+position = Vector2( 1060, 282 )
+shape = SubResource( 1 )
+
+[node name="Hero" parent="." instance=ExtResource( 1 )]
+position = Vector2( 491, 431 )
+
+[node name="Ground" parent="." instance=ExtResource( 2 )]
+position = Vector2( -12, -21 )
